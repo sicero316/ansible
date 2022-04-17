@@ -4,7 +4,10 @@
 #linux1
 #linux2
 [windows_servers]
-
+#windows1
 [windows_servers:vars]
 #ansible_user = myadmin
 #ansible_pass = veryverysecret
+#ansible_port = 5986
+#ansible_connection = winrm
+#ansible_winrm_server_cert_validation = ignore
