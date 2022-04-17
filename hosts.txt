@@ -2,6 +2,23 @@
 #my_server_name=0.0.0.0
 #my.domain.rnd
 
+[staging_DB]
+#0.0.0.0
+#0.0.0.0
+
+[staging_WEB]
+#0.0.0.0
+#0.0.0.0
+
+[staging_APP]
+#0.0.0.0
+#0.0.0.0
+
+[staging_ALL:children]
+staging_DB
+staging_WEB
+staging_APP
+
 [staging_servers]
 #linux1 ansible_host=0.0.0.0 ansible_user=myusr ansible_pass= ansible_ssh_private_key_file=~/myusr/.ssh/mykey.key
 [prod_servers]
