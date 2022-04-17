@@ -64,3 +64,11 @@ ansible_pass = veryverysecret
 ansible_port = 5986
 ansible_connection = winrm
 ansible_winrm_server_cert_validation = ignore
+
+[STAGING_SERVERS_WEB]
+linux1  ansible_host=127.0.0.1
+linux2  ansible_host=127.0.0.1 password=mysecret
+
+#[STAGING_SERVERS_WEB:vars]
+#ansible_user=myuser
+#ansible_ssh_private_key_file=/myusr/.ssh/mykey.key
