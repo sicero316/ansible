@@ -1,0 +1,23 @@
+---
+- fruits:
+    - apple
+    - orange
+    - mango
+- vegetables:
+    - carrots
+    - cucumbers
+- vasya:
+    nick: vasek
+    position: developer
+    skills:
+      - python
+      - perl
+      - php
+- petya:
+    nick: "pet: krutoy"
+    position: manager
+    skills:
+      - manage
+      - make_noize
+
+...
