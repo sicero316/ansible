@@ -1,0 +1,74 @@
+0.0.0.0
+my_server_name=0.0.0.0
+my.domain.rnd
+
+[staging_DB]
+0.0.0.0
+0.0.0.0
+[staging_WEB]
+0.0.0.0
+0.0.0.0
+[staging_APP]
+0.0.0.0
+0.0.0.0
+
+[staging_ALL:children]
+staging_DB
+staging_WEB
+staging_APP
+
+[prod_DB]
+0.0.0.0
+[prod_WEB]
+0.0.0.0
+[prod_APP]
+0.0.0.0
+
+[prod_ALL:children]
+prod_DB
+prod_WEB
+prod_APP
+
+[DB_ALL:children]
+staging_DB
+prod_DB
+
+[APP_ALL:children]
+staging_APP
+prod_APP
+
+[RAZNOE:children]
+APP_ALL
+DB_ALL
+
+[RAZNOE:vars]
+message=Hello
+
+[staging_servers]
+linux1 ansible_host=0.0.0.0 ansible_user=myusr ansible_pass= ansible_ssh_private_key_file=~/myusr/.ssh/mykey.key
+
+[prod_servers]
+linux1 ansible_host=0.0.0.0
+linux2 ansible_host=0.0.0.0
+
+[prod_servers:vars]
+ansible_user=myusr 
+ansible_ssh_private_key_file=~/myusr/.ssh/mykey.key
+
+[windows_servers]
+windows1 ansible_host=0.0.0.0
+
+[windows_servers:vars]
+ansible_user = myadmin
+ansible_pass = veryverysecret
+ansible_port = 5986
+ansible_connection = winrm
+ansible_winrm_server_cert_validation = ignore
+
+[STAGING_SERVERS_WEB]
+linux1  ansible_host=127.0.0.1
+linux2  ansible_host=127.0.0.1 password=mysecret
+
+#[STAGING_SERVERS_WEB:vars]
+#ansible_user=myuser
+#ansible_ssh_private_key_file=/myusr/.ssh/mykey.key
