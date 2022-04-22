@@ -6,7 +6,7 @@
   vars:
     source_file: ./MyPage/index.html
     destin_file: /var/www/html
-  
+
   tasks:
   - name: Install Apache Web Server
     yum: name=httpd state=latest
