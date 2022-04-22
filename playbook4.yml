@@ -26,3 +26,12 @@
 
   - debug:
       var: ansible_distribution
+
+  - debug:
+      var: ansible_os_family
+
+  - shell: uptime
+    register: results
+
+  - debug:
+      var: results
