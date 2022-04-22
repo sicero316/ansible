@@ -1,0 +1,2 @@
+ansible_user=myusr
+ansible_ssh_private_key_file=~/myusr/.ssh/mykey.key
