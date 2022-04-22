@@ -14,31 +14,30 @@
   - block:      ## ======Block for RedHat======
       - name: Install Apache Web Server for RedHat
         yum: name=httpd state=latest
-        when: ansible_os_family == "RedHat"
 
       - name: Copy MyPage to Server
         copy: src={{ source_file }}  dest={{ destin_file }} mode=0555
-        notify: Restart Apache
+        notify: Restart Apache RedHat
 
       - name: Start Web Server and make it enable on boot
         service: name=httpd  state=started  enabled=yes
-        when: ansible_os_family == "RedHat"
+    when: ansible_os_family == "RedHat"
 
   - block:      ## ======Block for Debian======
       - name: Install Apache Web Server for Debian
         apt: name=apache2 state=latest
-        when: ansible_os_family == "Debian"
 
       - name: Copy MyPage to Server
         copy: src={{ source_file }}  dest={{ destin_file }} mode=0555
-        notify: Restart Apache
+        notify: Restart Apache Debian
 
       - name: Start Web Server and make it enable on boot
         service: name=apache2  state=started  enabled=yes
-        when: ansible_os_family == "Debian"
+    when: ansible_os_family == "Debian"
 
   handlers:
-# RedHat
-  - name: Restart Apache
+  - name: Restart Apache RedHat
     service: name=httpd state=restarted
-# Debian
+
+  - name: Restart Apache Debian
+    service: name=apache2 state=restarted
