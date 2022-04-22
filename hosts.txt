@@ -3,29 +3,14 @@ linux1  ansible_host=127.0.0.1
 linux2  ansible_host=127.0.0.1 password=mysecret
 linux3  ansible_host=127.0.0.1
 
-#[STAGING_SERVERS_WEB:vars]
-#ansible_user=myuser
-#ansible_ssh_private_key_file=/myusr/.ssh/mykey.key
-
 [PROD_SERVERS]
 linux1 ansible_host=127.0.0.1
 linux2 ansible_host=127.0.0.1
 linux3 ansible_host=127.0.0.1
 
-#[PROD_SERVERS:vars]
-#ansible_user=myusr
-#ansible_ssh_private_key_file=~/myusr/.ssh/mykey.key
-
 [WINDOWS_SERVERS]
 windows1 ansible_host=127.0.0.1
 windows2 ansible_host=127.0.0.1
-
-#[WINDOWS_SERVERS:vars]
-#ansible_user = myadmin
-#ansible_pass = veryverysecret
-#ansible_port = 5986
-#ansible_connection = winrm
-#ansible_winrm_server_cert_validation = ignore
 
 [ALL_SERVERS:children]
 STAGING_SERVERS_WEB
