@@ -4,8 +4,6 @@
   become: yes
 
   vars:
-#    source_file: ./MyPage/index.html
-#    destin_file: /var/www/html
     source_folder: ./MyPage2
     destin_folder: /var/www/html
 
@@ -17,10 +15,6 @@
       - name: Install Apache Web Server for RedHat
         yum: name=httpd state=latest
 
-#      - name: Copy MyPage to Server
-#        copy: src={{ source_file }}  dest={{ destin_file }} mode=0555
-#        notify: Restart Apache RedHat
-
       - name: Start Web Server and make it enable on boot
         service: name=httpd  state=started  enabled=yes
     when: ansible_os_family == "RedHat"
@@ -29,10 +23,6 @@
       - name: Install Apache Web Server for Debian
         apt: name=apache2 state=latest
 
-#      - name: Copy MyPage to Server
-#        copy: src={{ source_file }}  dest={{ destin_file }} mode=0555
-#        notify: Restart Apache Debian
-
       - name: Start Web Server and make it enable on boot
         service: name=apache2  state=started  enabled=yes
     when: ansible_os_family == "Debian"
@@ -40,11 +30,6 @@
   - name: Copy MyPage2 to Server
     copy: src={{ source_folder }}/{{ item }}  dest={{ destin_folder }} mode=0555
     with_fileglob: "{{ source_folder }}/*.*" #alt loop method
-#    loop:
-#      - "index.html"
-#      - "picture.png"
-#      - "file1"
-#      - "file2"
     notify:
       - Restart Apache RedHat
       - Restart Apache Debian
