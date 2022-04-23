@@ -1,0 +1,32 @@
+---
+- name: Loop Playbook
+  become: yes
+
+  tasks:
+  - name: Say Hello to All
+    debug: msg="Hello {{ item }}"
+    #with_items: on ansible 2.4 on 2.5 loop
+    loop:
+        - "Vasya"
+        - "Petya"
+        - "Vitya"
+        - "Masha"
+        - "Sasha"
+
+  - name: Loop Until ex
+    shell: echo -n Z >> myfile.txt && cat myfile.txt
+    register: output
+    delay: 2
+    retries: 10 #default 3
+    until: output.stdout.find("ZZZZ") == false #until 4 Z
+
+  - name: Print output
+    debug:
+      var: output.stdout
+
+#  - name: Install many items
+#    yum: name={{ item }} state=installed
+#    with_items:
+#        - "python"
+#        - "tree"
+#        - "mysql-client"
