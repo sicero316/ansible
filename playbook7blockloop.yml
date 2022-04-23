@@ -15,9 +15,9 @@
       - name: Install Apache Web Server for RedHat
         yum: name=httpd state=latest
 
-      - name: Copy MyPage to Server
-        copy: src={{ source_file }}  dest={{ destin_file }} mode=0555
-        notify: Restart Apache RedHat
+#      - name: Copy MyPage to Server
+#        copy: src={{ source_file }}  dest={{ destin_file }} mode=0555
+#        notify: Restart Apache RedHat
 
       - name: Start Web Server and make it enable on boot
         service: name=httpd  state=started  enabled=yes
@@ -27,9 +27,9 @@
       - name: Install Apache Web Server for Debian
         apt: name=apache2 state=latest
 
-      - name: Copy MyPage to Server
-        copy: src={{ source_file }}  dest={{ destin_file }} mode=0555
-        notify: Restart Apache Debian
+#      - name: Copy MyPage to Server
+#        copy: src={{ source_file }}  dest={{ destin_file }} mode=0555
+#        notify: Restart Apache Debian
 
       - name: Start Web Server and make it enable on boot
         service: name=apache2  state=started  enabled=yes
