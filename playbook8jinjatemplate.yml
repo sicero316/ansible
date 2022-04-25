@@ -26,7 +26,7 @@
     when: ansible_os_family == "Debian"
 
   - name: Generate index.html file
-    template: src={{ source_folder }}/index.j2 dest={{ destin_folder}} mode=0555
+    template: src={{ source_folder }}/index.j2 dest={{ destin_folder}}/index.html mode=0555
     notify:
       - Restart Apache RedHat
       - Restart Apache Debian
