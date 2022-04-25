@@ -27,12 +27,15 @@
 
   - name: Generate index.html file
     template: src={{ source_folder }}/index.j2 dest={{ destin_folder}} mode=0555
+    notify:
+      - Restart Apache RedHat
+      - Restart Apache Debian
 
   - name: Copy MyPage2 to Server
     copy: src={{ source_folder }}/{{ item }}  dest={{ destin_folder }} mode=0555
 #    with_fileglob: "{{ source_folder }}/*.*" #alt loop method
     loop:
-      - "index.html"
+#      - "index.html"
       - "pic1.png"
       - "pic2.png"
       - "pic3.png"
