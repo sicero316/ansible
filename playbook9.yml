@@ -1,4 +1,0 @@
----
-- name: Install Apache and Upload my Web Page
-  hosts: all
-  become: yes
