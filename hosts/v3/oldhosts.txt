@@ -1,16 +1,18 @@
-[STAGING]
+[STAGING_SERVERS_WEB]
 linux1  ansible_host=127.0.0.1
 linux2  ansible_host=127.0.0.1 password=mysecret
+linux3  ansible_host=127.0.0.1
 
-[PROD]
+[PROD_SERVERS]
 linux1 ansible_host=127.0.0.1
 linux2 ansible_host=127.0.0.1
+linux3 ansible_host=127.0.0.1
 
-[WINDOWS]
+[WINDOWS_SERVERS]
 windows1 ansible_host=127.0.0.1
 windows2 ansible_host=127.0.0.1
 
 [ALL_SERVERS:children]
-STAGING
-PROD
-WINDOWS
+STAGING_SERVERS_WEB
+PROD_SERVERS
+WINDOWS_SERVERS
