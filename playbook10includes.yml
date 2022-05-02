@@ -10,30 +10,11 @@
   - name: Ping test
     ping:
 
-  - name: Create folder1
-    file:
-      path: /home/toserver/folder1
-      state: directory
-      mode: 0755
+  - name: Create folders
+    include: create_folders.yml
 
-  - name: Create folder2
-    file:
-      path: /home/toserver/folder2
-      state: directory
-      mode: 0755
+  - name: Create files
+    include: create_files.yml mytest="World Hello"
 
-  - name: Create file1
-    copy:
-      dest: /home/toserver/file1.txt
-      content: |
-        text line 1, in file1
-        text line 2, in file1
-        text line 3, {{ mytext }}
-
-  - name: Create ffile2
-    copy:
-      dest: /home/toserver/file2.txt
-      content: |
-        text line 1, in file2
-        text line 2, in file2
-        text line 3, {{ mytext }}
+#  - name: import code here
+#    import: import_this.yml
