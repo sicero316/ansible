@@ -1,0 +1,15 @@
+---
+- name: Create file1
+  copy:
+    dest: /home/toserver/file1.txt
+    content: |
+      text line 1, in file1
+      text line 2, in file1
+      text line 3, {{ mytext }}
+- name: Create ffile2
+  copy:
+    dest: /home/toserver/file2.txt
+    content: |
+      text line 1, in file2
+      text line 2, in file2
+      text line 3, {{ mytext }}
