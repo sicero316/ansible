@@ -9,7 +9,7 @@
   tasks:
   - name: Ping test
     ping:
-  
+
   - name: Create folder1
     file:
       path: /home/toserver/folder1
@@ -29,7 +29,7 @@
         text line 1, in file1
         text line 2, in file1
         text line 3, {{ mytext }}
-  
+
   - name: Create ffile2
     copy:
       dest: /home/toserver/file2.txt
