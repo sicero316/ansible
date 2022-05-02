@@ -1,6 +1,8 @@
 ---
 - name: Install Apache and Upload my Web Page
-  hosts: all
+  #hosts: all
+  hosts: "{{ MYHOSTS }}"
+  #ansible-playbook playbook9roles.yml --extara-var "MYHOSTS=LINUX"
   become: yes
 
   roles:
