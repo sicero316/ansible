@@ -10,6 +10,11 @@
   - name: Ping test
     ping:
 
+  - name: Unregister server from load balancer
+    shell: echo this server {{ inventory_hostname }} was deregistered from our load balancer. Node name is {{ ansible_nodename }} >> /home/ansiblog.txt
+    delegate_to: 127.0.0.1
+# writes logs on my ansible master
+
   - name: Create file1
     copy:
       dest: /home/toserver/file1.txt
