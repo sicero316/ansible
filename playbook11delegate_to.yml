@@ -23,6 +23,7 @@
         fixed message: Hello World
         my    message: {{ mytext }}
     delegate_to: linux2
+    # runs create file on linux2
   - name: Create ffile2
     copy:
       dest: /home/toserver/file2.txt
