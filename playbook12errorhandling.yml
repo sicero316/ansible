@@ -1,0 +1,14 @@
+---
+- name: Error handling
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Task no 1
+    yum: name=treeeee state=latest
+
+  - name: Task no 2
+    shell: echo Hello World
+  
+  - name: Task no 3
+    shell: Privet Mir
