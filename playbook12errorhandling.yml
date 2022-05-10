@@ -9,6 +9,6 @@
 
   - name: Task no 2
     shell: echo Hello World
-  
+
   - name: Task no 3
     shell: Privet Mir
