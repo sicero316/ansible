@@ -9,8 +9,9 @@
     ignore_errors: yes
 
   - name: Task no 2
-    shell: ls -la /etc/
+    shell: echo Hello World
     register: results
+    failed_when: "'World' in results.stdout"
 
   - debug:
       var: results
